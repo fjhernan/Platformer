@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-        marioScore.text = "MARIO\n" + score.ToString("D8");
+        marioScore.text = "MARIO\n" + score.ToString("D6");
         coinCounter.text = "COIN\n" + counter.ToString("D2");
         timer.text = "TIMER\n"+t;
     }
@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
         if(temp == false && t > 0)
            StartCoroutine(Countdown());
 
-        marioScore.text = "Mario\n" + score.ToString("D8");
+        marioScore.text = "Mario\n" + score.ToString("D6");
         
         if (counter >= 100)
             counter = 0;
