@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI marioScore;
     public TextMeshProUGUI coinCounter;
     public TextMeshProUGUI timer;
-    private int t = 120;
+    private int t = 100;
     public int score = 0;
     private bool temp = false;
     public int counter = 0;
@@ -26,6 +26,10 @@ public class UIManager : MonoBehaviour
     {
         if(temp == false && t > 0)
            StartCoroutine(Countdown());
+        else if(t <= 0)
+        {
+            Debug.Log("Failed. Couldn't reach the goal in time.");
+        }
 
         marioScore.text = "Mario\n" + score.ToString("D6");
         
@@ -38,12 +42,23 @@ public class UIManager : MonoBehaviour
     IEnumerator Countdown() //Not my code. Credit goes to youtuber Jimmy Vegas
     {
         temp = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1.0f);
         t -= 1;
         if (t < 100)
             timer.text = "TIMER\n" + t.ToString("D3");
         else
             timer.text = "TIMER\n" + t;
         temp = false;
+    }
+    
+    public void blockBroken()
+    {
+        score += 100;
+    }
+
+    public void questionBlockHit()
+    {
+        score += 100;
+        counter++;
     }
 }
