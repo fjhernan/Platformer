@@ -16,7 +16,7 @@ public class Ethan : MonoBehaviour
     void Update()
     {
         float move = Input.GetAxis("Horizontal");
-        float y = (move < 0) ? 180 : 0;
+        float y = (move < 0) ? 270 : 90;
         if(move > 0 || move < 0)
         {
             Debug.Log("Moving works");

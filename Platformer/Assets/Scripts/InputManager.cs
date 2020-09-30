@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -24,11 +25,11 @@ public class InputManager : MonoBehaviour
                 Debug.Log(bc.name);
                 if(bc.name == "Brick(Clone)"){
                     Destroy(bc.gameObject);
-                    score.GetComponent<UIManager>().score += 100;
+                    //score.GetComponent<UIManager>().score += 100;
+                    GameObject.Find("UIManager").GetComponent<UIManager>().blockBroken();
                 }
                 if(bc.name == "Question(Clone)"){
-                    score.GetComponent<UIManager>().score += 500;
-                    score.GetComponent<UIManager>().counter += 1;
+                    GameObject.Find("UIManager").GetComponent<UIManager>().questionBlockHit();
                 }
             }
         }   

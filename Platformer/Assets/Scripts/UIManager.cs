@@ -9,10 +9,13 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI marioScore;
     public TextMeshProUGUI coinCounter;
     public TextMeshProUGUI timer;
+    public TextMeshProUGUI victory;
+    public TextMeshProUGUI failure;
     private int t = 100;
-    public int score = 0;
+    private int score = 0;
     private bool temp = false;
-    public int counter = 0;
+    private int counter = 0;
+    private bool win = false, fail = false;
 
     // Start is called before the first frame update
     void Start(){
@@ -24,21 +27,29 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(temp == false && t > 0)
-           StartCoroutine(Countdown());
-        else if(t <= 0)
+        if (win == false && fail == false)
         {
-            Debug.Log("Failed. Couldn't reach the goal in time.");
+            if (temp == false && t > 0)
+                StartCoroutine(Countdown());
+            else if (t <= 0)
+            {
+                fail = true;
+            }
+
+            marioScore.text = "Mario\n" + score.ToString("D6");
+
+            if (counter >= 100)
+                counter = 0;
+
+            coinCounter.text = "COIN\n" + counter.ToString("D2");
         }
-
-        marioScore.text = "Mario\n" + score.ToString("D6");
-        
-        if (counter >= 100)
-            counter = 0;
-
-        coinCounter.text = "COIN\n" + counter.ToString("D2");
+        else if (win == true && fail == false){
+            victory.text = "<color=black>You beat the level!</color>";
+        }
+        else if(win == false && fail == true){
+            failure.text = "<color=black>You couldn't beat the level in time.</color>";
+        }
     }
-
     IEnumerator Countdown() //Not my code. Credit goes to youtuber Jimmy Vegas
     {
         temp = true;
@@ -60,5 +71,12 @@ public class UIManager : MonoBehaviour
     {
         score += 100;
         counter++;
+    }
+    public void beatIt()
+    {
+        win = true;
+    }
+    public void failed(){
+        fail = true;
     }
 }
