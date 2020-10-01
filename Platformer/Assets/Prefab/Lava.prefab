@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 244868383827624263}
   - component: {fileID: 5108868112406917517}
   - component: {fileID: 6345382149524467213}
-  - component: {fileID: 7985727316805487905}
+  - component: {fileID: -1346384182992838152}
+  - component: {fileID: 4076345310892083612}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Untagged
@@ -82,8 +83,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7985727316805487905
-BoxCollider:
+--- !u!114 &-1346384182992838152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825834984133867723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc55e387e9fe3554ba16a8c054d2b371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &4076345310892083612
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -92,6 +105,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}

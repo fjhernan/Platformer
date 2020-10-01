@@ -59,17 +59,17 @@ public class LevelParserStarter : MonoBehaviour
 
         switch (spot)
         {
-            case 'b': Debug.Log("Spawn Brick"); ToSpawn = Brick; break;
-            case '?': Debug.Log("Spawn QuestionBox"); ToSpawn = QuestionBox;  break;
-            case 'x': Debug.Log("Spawn Rock"); ToSpawn = Rock;  break;
-            case 's': Debug.Log("Spawn Stone"); ToSpawn = Stone;  break;
-            case 'l': Debug.Log("Spawn Lava"); ToSpawn = Lava; break;
-            case 'g': Debug.Log("Spawn Goal"); ToSpawn = Goal; break;
+            case 'b': /*Debug.Log("Spawn Brick");*/ ToSpawn = Brick; break;
+            case '?':/* Debug.Log("Spawn QuestionBox"); */ToSpawn = QuestionBox;  break;
+            case 'x':/* Debug.Log("Spawn Rock"); */ToSpawn = Rock;  break;
+            case 's':/* Debug.Log("Spawn Stone"); */ToSpawn = Stone;  break;
+            case 'l':/* Debug.Log("Spawn Lava"); */ToSpawn = Lava; break;
+            case 'g':/* Debug.Log("Spawn Goal"); */ToSpawn = Goal; break;
             //default: Debug.Log("Default Entered"); break;
             default: return;
                 //ToSpawn = //Brick;       break;
         }
-        Debug.Log("Spawning at " + positionToSpawn);
+        //Debug.Log("Spawning at " + positionToSpawn);
         ToSpawn = GameObject.Instantiate(ToSpawn, parentTransform);
         ToSpawn.transform.localPosition = positionToSpawn;
     }
