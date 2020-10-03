@@ -20,7 +20,7 @@ public class Brick : MonoBehaviour
     {
         if(collision.gameObject.name == "Ethan"){
             GameObject.Find("UIManager").GetComponent<UIManager>().blockBroken();
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
